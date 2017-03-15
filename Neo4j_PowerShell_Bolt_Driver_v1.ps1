@@ -1,4 +1,4 @@
-﻿
+#requires -version 2
 
 Function NEO4J-Bolt-Connect
 {
@@ -49,7 +49,9 @@ Function NEO4J-Bolt-Connect
          $CYPHER_PARAM.Add('limit', 10)
 
          $result = $N4J_Connection.Run('MATCH (n) RETURN n LIMIT {limit}', $CYPHER_PARAM )
-         Write-Host ($result | ConvertTo-JSON -Depth 20)        # Advanced Query with parameters --------------------------------------------------
+         Write-Host ($result | ConvertTo-JSON -Depth 20)
+
+        # Advanced Query with parameters --------------------------------------------------
          # 1st., we must define the correct data type to pass to .net driver.
          $listForUnwind = new-object 'System.Collections.Generic.List[[object]]'
 
@@ -79,7 +81,9 @@ Function NEO4J-Bolt-Connect
 
          # Finnaly we need to build the Props UNWIND for NEO4J
          $CYPHER_PARAM = new-object 'system.collections.generic.dictionary[[string],[object]]'
-         $CYPHER_PARAM.Add('props', $listForUnwind)             $result = $N4J_Connection.Run($query, $CYPHER_PARAM)
+         $CYPHER_PARAM.Add('props', $listForUnwind)
+    
+         $result = $N4J_Connection.Run($query, $CYPHER_PARAM)
          Write-Host ($result | ConvertTo-JSON -Depth 10)
 
     .NOTES
