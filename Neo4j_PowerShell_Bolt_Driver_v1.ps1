@@ -8,6 +8,7 @@ Function NEO4J-Bolt-Connect
         Creates a .NET Bolt Connection to a NEO4J Database for Queries.
 
         Author: Larry Cummings (@genome_8 on neo4j-users.slack.com)
+        Source: https://github.com/Genome8/NEO4J-PowerShell-Driver
         License: MIT License
         Required Dependencies: Neo4j.Driver.dll, Sockets.Plugin.Abstractions.dll `
             , Sockets.Plugin.dll, .NET 4.5 tested on WIndows 10 & Server 2012 w/
